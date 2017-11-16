@@ -1,34 +1,73 @@
+using DataSimulation;
 using GalaSoft.MvvmLight;
+using Shared.BaseModels;
+using Shared.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace CD03_Zarl.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that the main View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm
-    /// </para>
-    /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the MainViewModel class.
-        /// </summary>
+        private Simulator sim;
+        public List<ItemVm> modelList= new List<ItemVm>();
+
+        public ObservableCollection<ItemVm> ActorList { get; set; }
+
+        public ObservableCollection<ItemVm> SensorList { get; set; }
+
+        public ObservableCollection<string> ModeSelectionList { get; private set; }
+
+        private string currentTime = DateTime.Now.ToLocalTime().ToShortTimeString();
+        private string currentDate = DateTime.Now.ToLocalTime().ToShortDateString();
+
+        public string CurrentDate
+        {
+            get { return currentDate; }
+            set { currentDate = value; RaisePropertyChanged(); }
+        }
+
+        public string CurrentTime
+        {
+            get { return currentTime; }
+            set { currentTime = value; RaisePropertyChanged(); }
+        }
+
+
+
         public MainViewModel()
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            ActorList = new ObservableCollection<ItemVm>();
+            SensorList = new ObservableCollection<ItemVm>();
+            ModeSelectionList = new ObservableCollection<string>();
+
+            foreach(var item in Enum.GetNames(typeof(SensorModeType)))
+            {
+                ModeSelectionList.Add(item);
+            }
+            foreach(var item in Enum.GetNames(typeof(ModeType)))
+            {
+                ModeSelectionList.Add(item);
+            }
+
+            
+        }
+
+        public void generateData()
+        {
+            sim = new Simulator(modelList);
+
+            foreach(var item in sim.Items)
+            {
+                if (item.ItemType.Equals(typeof(ISensor)))
+                {
+                    SensorList.Add(item);
+                }else if (item.ItemType.Equals(typeof(IActuator)))
+                {
+                    ActorList.Add(item);
+                }
+            }
         }
     }
 }
