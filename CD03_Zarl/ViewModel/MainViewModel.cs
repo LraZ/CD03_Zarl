@@ -5,6 +5,7 @@ using Shared.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Threading;
 
 namespace CD03_Zarl.ViewModel
 {
@@ -51,10 +52,23 @@ namespace CD03_Zarl.ViewModel
                 ModeSelectionList.Add(item);
             }
 
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 30);
+            timer.Tick += updateTimer;
+
+            loadData();
+            timer.Start();
             
         }
 
-        public void generateData()
+        private void updateTimer(object sender, EventArgs e)
+        {
+            CurrentTime = DateTime.Now.ToLocalTime().ToShortTimeString();
+            CurrentDate = DateTime.Now.ToLocalTime().ToShortDateString();
+
+        }
+
+        public void loadData()
         {
             sim = new Simulator(modelList);
 

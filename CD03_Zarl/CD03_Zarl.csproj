@@ -72,6 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\StingToBrushConverter.cs" />
     <Compile Include="DataSimulation\Simulator.cs" />
     <Compile Include="ViewModel\ItemVm.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -116,8 +117,108 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Images\" />
+    <Resource Include="Cloud sun02-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cloud-Overcast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Door closed-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Forecast weather -WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Head Phone-02-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="House.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Lock-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Man-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Message Mail-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Plug-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rain-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sofa-01-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Solar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Speaker Decrease - 01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Speaker Increase - 02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Speaker Mute - 04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Tasks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Temperature Warning-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Temperature-02-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Unlock-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Warning-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Weather-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Wind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bell New-WF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Clock-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Bell New-WF.png" />
+    <Resource Include="Images\Clock-01.png" />
+    <Resource Include="Images\Cloud sun02-WF.png" />
+    <Resource Include="Images\Cloud-Overcast.png" />
+    <Resource Include="Images\Door closed-WF.png" />
+    <Resource Include="Images\Forecast weather -WF.png" />
+    <Resource Include="Images\Head Phone-02-WF.png" />
+    <Resource Include="Images\House.png" />
+    <Resource Include="Images\Lock-WF.png" />
+    <Resource Include="Images\Man-01.png" />
+    <Resource Include="Images\Message Mail-WF.png" />
+    <Resource Include="Images\Plug-WF.png" />
+    <Resource Include="Images\Rain-WF.png" />
+    <Resource Include="Images\Sofa-01-WF.png" />
+    <Resource Include="Images\Solar.png" />
+    <Resource Include="Images\Speaker Decrease - 01.png" />
+    <Resource Include="Images\Speaker Increase - 02.png" />
+    <Resource Include="Images\Speaker Mute - 04.png" />
+    <Resource Include="Images\Tasks.png" />
+    <Resource Include="Images\Temperature Warning-WF.png" />
+    <Resource Include="Images\Temperature-02-WF.png" />
+    <Resource Include="Images\Unlock-WF.png" />
+    <Resource Include="Images\Warning-WF.png" />
+    <Resource Include="Images\Weather-01.png" />
+    <Resource Include="Images\Wind.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
