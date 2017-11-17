@@ -18,7 +18,9 @@ namespace CD03_Zarl.ViewModel
 
         public ObservableCollection<ItemVm> SensorList { get; set; }
 
-        public ObservableCollection<string> ModeSelectionList { get; private set; }
+        public ObservableCollection<string> ActorModeSelectionList { get; private set; }
+
+        public ObservableCollection<string> SensorModeSelectionList { get; private set; }
 
         private string currentTime = DateTime.Now.ToLocalTime().ToShortTimeString();
         private string currentDate = DateTime.Now.ToLocalTime().ToShortDateString();
@@ -41,15 +43,18 @@ namespace CD03_Zarl.ViewModel
         {
             ActorList = new ObservableCollection<ItemVm>();
             SensorList = new ObservableCollection<ItemVm>();
-            ModeSelectionList = new ObservableCollection<string>();
+            ActorModeSelectionList = new ObservableCollection<string>();
+            SensorModeSelectionList = new ObservableCollection<string>();
 
-            foreach(var item in Enum.GetNames(typeof(SensorModeType)))
+            foreach (var item in Enum.GetNames(typeof(SensorModeType)))
             {
-                ModeSelectionList.Add(item);
+                //pfusch
+                if (item == "Auto" || item == "Manual") break;
+                SensorModeSelectionList.Add(item);
             }
             foreach(var item in Enum.GetNames(typeof(ModeType)))
             {
-                ModeSelectionList.Add(item);
+                ActorModeSelectionList.Add(item);
             }
 
             DispatcherTimer timer = new DispatcherTimer();
