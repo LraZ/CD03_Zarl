@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 namespace CD03_Zarl.Converters
 {
-    class StingToBrushConverter : IValueConverter
+    public class StingToBrushConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
