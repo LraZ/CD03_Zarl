@@ -43,13 +43,12 @@ namespace CD03_Zarl.ViewModel
         {
             ActorList = new ObservableCollection<ItemVm>();
             SensorList = new ObservableCollection<ItemVm>();
-            ActorModeSelectionList = new ObservableCollection<string>();
             SensorModeSelectionList = new ObservableCollection<string>();
+            ActorModeSelectionList = new ObservableCollection<string>();
 
             foreach (var item in Enum.GetNames(typeof(SensorModeType)))
             {
-                //pfusch
-                if (item == "Auto" || item == "Manual") break;
+                //Aus unerklärlichen Gründen werden "Auto" und "Manual" ebenfalls in der SensorModeSelectionList gespeichert.
                 SensorModeSelectionList.Add(item);
             }
             foreach(var item in Enum.GetNames(typeof(ModeType)))
@@ -60,9 +59,9 @@ namespace CD03_Zarl.ViewModel
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 30);
             timer.Tick += updateTimer;
+            timer.Start();
 
             loadData();
-            timer.Start();
             
         }
 
